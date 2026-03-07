@@ -1,0 +1,44 @@
+name: Luxora Hotel CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name:  Checkout Code
+      uses: actions/checkout@v3
+    
+    - name:  Build Docker Image
+      run: |
+        echo "Building Docker image..."
+        docker build -t luxora-hotel:latest .
+        docker build -t luxora-hotel:${{ github.sha }} .
+    
+    - name: Test Container
+      run: |
+        echo "Testing container..."
+        docker run -d -p 8080:80 --name test-luxora luxora-hotel:latest
+        sleep 10
+        curl -f http://localhost:8080 || exit 1
+        echo "Test passed!"
+    
+    - name:  Cleanup
+      if: always()
+      run: |
+        docker stop test-luxora || true
+        docker rm test-luxora || true
+    
+    - name:  Build Success
+      run: |
+        echo "=========================================="
+        echo " CI/CD PIPELINE SUCCESSFUL!"
+        echo "Docker image built: luxora-hotel:latest"
+        echo " Container tested successfully"
+        echo "Ready for deployment"
+        echo "=========================================="
