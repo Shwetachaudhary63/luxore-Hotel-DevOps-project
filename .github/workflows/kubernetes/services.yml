@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: luxora-hotel-service
+  labels:
+    app: luxora-hotel
+spec:
+  type: NodePort
+  selector:
+    app: luxora-hotel
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30080
+  sessionAffinity: ClientIP
