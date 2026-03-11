@@ -16,7 +16,7 @@
 - Docker - Multi-container architecture (4 services)
 - Kubernetes - Container orchestration manifests
 - Docker Compose - Container management
-- CI/CD & Automation
+  CI/CD & Automation
 - GitHub Actions - Automated CI/CD pipeline
 - Ansible - Configuration management
 - Git/GitHub - Version control and collaboration
@@ -28,51 +28,7 @@
 - Nginx - Web server (Alpine-based)
 
 📊 Architecture
-- ┌─────────────────────────────────────────────────────┐
-- │                   GitHub Repository                  │
-- │              (Source Code & Workflows)               │
-- └──────────────────┬──────────────────────────────────┘
- -                   │
- -                   ▼
-   -      ┌──────────────────────┐
-   -      │   GitHub Actions     │
-   -      │   (CI/CD Pipeline)   │
-   -      │  - Build & Validate  │
-   -      │  - Automated Testing │
-    -     └──────────┬───────────┘
-    -                │
-     -               ▼
-- ┌──────────────────────────────────────────────────────┐
-- │              AWS EC2 Instance                         │
-- │         (ap-southeast-1 / Singapore)                  │
-- │                                                       │
-- │  ┌────────────────────────────────────────────────┐  │
-- │  │          Docker Containers                     │  │
-- │  │                                                │  │
-- │  │  ┌──────────┐  ┌──────────┐  ┌──────────┐   │  │
-- │  │  │  Nginx   │  │Prometheus│  │ Grafana  │   │  │
-- │  │  │  :8080   │  │  :9090   │  │  :3000   │   │  │
-- │  │  └──────────┘  └──────────┘  └──────────┘   │  │
-- │  │                                                │  │
-- │  │  ┌──────────┐                                 │  │
-- │  │  │ Jenkins  │  (Optional)                     │  │
-- │  │  │  :9080   │                                 │  │
-- │  │  └──────────┘                                 │  │
-- │  └────────────────────────────────────────────────┘  │
-- │                                                       │
-- │  ┌────────────────────────────────────────────────┐  │
-- │  │    Kubernetes Configurations                   │  │
-- │  │    - Deployment (2 replicas)                   │  │
-- │  │    - Service (NodePort)                        │  │
-- │  │    - Resource management                       │  │
-- │  └────────────────────────────────────────────────┘  │
-- │                                                       │
-- │  ┌────────────────────────────────────────────────┐  │
-- │  │    Ansible Automation                          │  │
-- │  │    - Configuration management                  │  │
-- │  │    - Deployment automation                     │  │
-- │  └────────────────────────────────────────────────┘  │
-- └───────────────────────────────────────────────────────┘
+![WhatsApp Image 2026-03-11 at 19 21 48](https://github.com/user-attachments/assets/c0fcfdee-8d19-47e3-8e22-84ba26004682)
 
 🔑 Key Features
 ✅ Automated CI/CD
@@ -294,7 +250,7 @@ Best Practices
 👤 Author
 - Shweta Chaudhary
 - GitHub: @Shwetachaudhary63
-- LinkedIn: 
+- LinkedIn: https://www.linkedin.com/in/shweta-chaudhary-14181035b?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
 🙏 Acknowledgments
 - AWS for cloud infrastructure
@@ -313,4 +269,5 @@ Best Practices
 - **Deployment:** Production-ready ✅
 
 ⭐ Star this repository if you found it helpful!
+
 Built with ❤️ using DevOps best practices
